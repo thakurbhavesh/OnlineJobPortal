@@ -1,0 +1,46 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_navigation.html' %}
+<style>
+      #one{
+          color:lime;
+         background-color:cyan!important;
+
+  text-shadow:2px 4px 2px yellow;
+         }
+         tr{
+         text-align:center;}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>
+<h1><marquee>View All Job</marquee></h1><hr>
+<div class="container">
+<table class="table table-hover container" id="example" class="display">
+    <thead>
+    <tr style="background-color:cyan">
+        <th>S.No</th>
+        <th> Job Title</th>
+        <th>Creation Date</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+<tbody>
+{% for c in job %}
+  <tr style="background-color:#DEB887;color:white;">
+            <td>{{forloop.counter}}</td>
+
+            <td>{{c.title}}</td>
+            <td>{{c.creationdate}}</td>
+
+      <td><a href="{% url 'edit_jobdetail' c.id %}" class="btn btn-primary" >Edit</a>
+      <a href="{% url 'delete_user' c.id %}" class="btn btn-danger" onclick="return confirm('Are You Sure Delete Your record')">Delete</a></td>
+
+
+        </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+{% endblock body %}

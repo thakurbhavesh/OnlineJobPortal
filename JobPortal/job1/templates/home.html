@@ -1,0 +1,88 @@
+{% load static %}
+{% block body %}
+{% include 'parent.html' %}
+<style>
+ .container{
+ max-width:90%;
+ }
+ .content{
+ height:30px;
+ width:90%;
+ text-align:center;
+ color:black;
+font-size:20px;
+ position:absolute;
+ bottom:0;
+ background:rbga(0,0,0,0.5);
+
+ }
+ p{
+ color:maroon;
+ font-weight:bold;}
+</style>
+
+<div class="container-fluid" style="margin-top:1%">
+ <img src="/static/images/job.jpg" style="height:450px;width:100%">
+</div>
+
+<div class="container" style="background-color:lightgreen;height:600px;margin-top:2%">
+<h1 class="text-center text-white">--------| OUR&nbsp; &nbsp;PLACED&nbsp; &nbsp;STUDENTS  |-------</h1>
+
+ <div class="row mt-3">
+  <div class="col-md-3">
+   <img src="/static/images/avatar2.png" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>Facebook</p>
+   </div>
+  </div>
+  <div class="col-md-3">
+   <img src="/static/images/avatar3.png" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>Amazon</p>
+   </div>
+  </div><div class="col-md-3">
+   <img src="/static/images/avatar4.png" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>Flipkart</p>
+   </div>
+  </div>
+  <div class="col-md-3">
+   <img src="/static/images/avatar5.png" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>Google</p>
+   </div>
+  </div>
+
+ </div>
+
+ <div class="row mt-4">
+  <div class="col-md-3">
+   <img src="/static/images/bhavesh.png" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>YOUTUBE</p>
+   </div>
+  </div>
+  <div class="col-md-3">
+   <img src="/static/images/irfan.jpg" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>TESLA</p>
+   </div>
+  </div><div class="col-md-3">
+   <img src="/static/images/bhav.jpg" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>TCS</p>
+   </div>
+  </div>
+  <div class="col-md-3">
+   <img src="/static/images/amit.jpg" style="height:200px;width:100%;margin-top:5%;border-radius:60%">
+   <div class="content">
+    <p>HCL</p>
+   </div>
+  </div>
+
+ </div>
+
+
+</div>
+{% include 'footer.html' %}
+{% endblock body %}

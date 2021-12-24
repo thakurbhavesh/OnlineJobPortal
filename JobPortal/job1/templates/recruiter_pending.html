@@ -1,0 +1,51 @@
+{% load static %}
+{% block body %}
+{% include 'admin_header.html' %}
+<style>
+      #one{
+          color:lime;
+         background-color:cyan!important;
+
+  text-shadow:2px 4px 2px yellow;
+         }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>View All Pending Recruiter</h1></marquee><hr>
+<div class="container">
+<table class="table table-hover container" id="example" class="display">
+    <thead>
+    <tr style="background-color:cyan">
+        <th>S.No</th>
+        <th> Full Name</th>
+        <th>Email Address</th>
+        <th>Contact No</th>
+
+        <th>Gender</th>
+        <th>Company</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+<tbody>
+{% for c in data %}
+  <tr style="background-color:#DEB887;color:white;">
+            <td>{{forloop.counter}}</td>
+            <td>{{c.user.first_name}}  {{c.user.last_name}}</td>
+            <td>{{c.user.username}}</td>
+            <td>{{c.mobile}}</td>
+            <td>{{c.gender}}</td>
+            <td>{{c.company}}</td>
+            <td><img src=" {{c.image.url}}" style="width:75px;height:75px;border-radius:50%;"></td>
+            <td>{{c.status}}</td>
+      <td><a href="{% url 'change_status' c.id %}" class="btn btn-success btn-sm" >Change Stataus</a></td>
+
+
+        </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+{% endblock body %}

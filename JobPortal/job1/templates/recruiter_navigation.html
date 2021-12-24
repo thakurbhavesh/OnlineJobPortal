@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+    <title> {% block title %}
+    {% endblock title %}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gorditas&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <style>
+
+	     body{  background-color:white;
+
+       font-family: 'Lobster', cursive!important;
+
+	     }
+
+*{font-family: 'Monotype Corsiva';}
+          .bg{
+          background:#ff4081;important;
+
+          }
+          .list-group-item.active{
+
+          background:lime;important;
+          border-color:white!important;
+          }
+
+
+
+
+
+          a{
+
+  padding-left:20px;
+         }
+         a:hover{
+         color:black!important;
+
+
+         }
+
+
+
+
+         }
+
+          #two{
+          color:green;
+         background-color:orange!important;
+
+  border:4px solid silver;
+  text-shadow:2px 4px 4px maroon;
+         }
+
+
+
+          #one{
+          color:lime;
+         background-color:white!important;
+
+  text-shadow:2px 4px 2px yellow;
+         }footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+#ram{
+background-color:lightgreen!important;
+color:black!important;
+
+
+}
+
+#shiva{
+  color:black;
+  font-size: 2.4rem;
+  padding-left:3rem;
+  text-shadow:4px 2px 4px orange;
+}
+#shivam{
+  color:black;
+  font-size: 1.4rem;
+  padding-left:10rem;
+  text-shadow:4px 2px 4px orange;
+a{
+text-align:center;
+text-shadow:4px 2px 4px orange;
+}
+marquee{
+width:850px;}
+.logo{
+background-color:white;}
+.log{
+margin-left:20px;
+margin-bottom:50px;}
+.nav-link{
+color:black!important;
+margin-right:20px;
+font-size:2.4rem!important;}
+
+.nav-link:hover{
+color:cyan!important;
+font-weight:bold;
+background-color:red;}
+.one{
+font-size:25px;}
+span{
+color:red;
+font-weight:bold;
+font-size:35px;
+text-shadow:2px 2px 4px gold;
+
+}
+p{
+color:yellow!important;
+}
+
+      </style>
+
+</head>
+<body>
+
+<div class="logo">
+    <div>
+<img src="/static/images/logo.jpg" height="55px" class="log">
+  <b class="navbar-brand" id="shiva"><marquee >O n l i n e  &nbsp;&nbsp; J o b &nbsp;&nbsp; P o r t a l &nbsp;&nbsp;S y s t e m</marquee></b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp;&nbsp;{{date}}</span>
+
+</div>
+
+<nav class="navbar navbar-expand-sm" style="background-color:silver">
+    <a class="navbar-brand text-magenta pl-5 font-weight:bold one" href="https://en.wikipedia.org/wiki/Employment_website" >Job Portal</a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'recruiter_home'%}" style="margin-left:280px;font-size:25px;"><i class="fa fa-home" ></i>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_job'%}" ><i class="fa fa-plus-circle" style="font-size:25px;" ></i>Add Job </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'job_list'%}" ><i class="fa fa-list-ol"  style="font-size:25px;"></i>Job List</a>
+        </li>
+         <li class="nav-item">
+            <a class="nav-link" href="#" ><i class="fa fa-users"  style="font-size:25px;"></i>Candidate Applied</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'change_passwordrecruiter'%}"   style="font-size:25px;"><i class="fa fa-lock" ></i>Change Password</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'Logout'%}"  style="font-size:25px;"><i class="fa fa-id-card" ></i>Logout</a>
+        </li>
+
+    </ul>
+    <b class="navbar-brand" id="shivam">{{request.user.first_name}} {{request.user.last_name}}</b>
+</nav>
+
+
+
+
+
+  {% block body %}
+
+  {% endblock body%}
+
+</body>
+</html>

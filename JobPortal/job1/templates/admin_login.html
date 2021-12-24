@@ -1,0 +1,42 @@
+{% load static %}
+{% block body %}
+{% include 'parent.html' %}
+<style>
+    .one{
+    font-family:'Monotype Corsiva';
+    font-size:25px;
+    color:darkcyan;
+
+    margin-top:1%;
+    font-weight:bold;
+    }
+form{font-weight:bold;
+font-size:20px;}
+</style>
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>Admin Login</h1></marquee>
+<br>
+<hr>
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label><i class="fa fa-users" ></i>UserName</label>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Username">
+    <label style="margin-top:2%;"><i class="fa fa-key" aria-hidden="true"></i>Password</label>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter password">
+    <input type="submit" class="btn btn-primary" style="margin-top:2%;color:white;" ><br>
+
+</form>
+{% ifequal error "no" %}
+<script>
+    alert('Login Successfull 😍😮');
+    window.location=('{% url 'admin_home' %}')
+</script>
+
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Not Logged 😥');
+
+</script>
+{% endifequal %}
+{% endblock body %}

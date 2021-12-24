@@ -1,0 +1,95 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_navigation.html' %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>Edit Job Details</h1></marquee>
+<br>
+<hr>
+<form class="container mt-5" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+   <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-file-text" aria-hidden="true"></i>Job Title</label>
+           <input type="text" class="form-control" name="jobtitle" placeholder="Enter Job Title" required autocomplete="on" value="{{job.title}}">
+           </div>
+
+   </div>
+
+    <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>Start Date <span style="color:maroon;">[{{job.start_date}}].</span></label>
+           <input type="date" class="form-control" name="startdate" value="{{job.start_date}}">
+           </div>
+
+        <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>End Date <span style="color:magenta;">[{{job.end_date}}]</span>.</label>
+           <input type="date" class="form-control" name="enddate" >
+           </div>
+
+   </div>
+
+       <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>Salary(per month is rs.)</label>
+           <input type="text" class="form-control" name="salary"  value="{{job.salary}}">
+           </div>
+
+        <div class="form-group col-md-6">
+           <img src="{{job.image.url}}" width="100px" height="100px"><a href="#">Change Company Logo</a>
+           </div>
+
+   </div>
+    <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Experience(In Years)</label>
+           <input type="text" class="form-control" name="experience" placeholder="Enter your experience"  value="{{job.experience}}">
+           </div>
+  <div class="form-group col-md-6">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i> Company Location</label>
+           <input type="text" class="form-control" name="location" placeholder="Enter your location"  value="{{job.location}}">
+           </div>
+   </div>
+    <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Skills</label>
+           <input type="text" class="form-control" name="skills" placeholder="skill required"  value="{{job.skills}}">
+           </div>
+
+   </div>
+     <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Descriptions</label>
+           <textarea class="form-control" name="description" placeholder="Enter your descriptions">{{job.description}}</textarea>
+           </div>
+
+   </div>
+
+     </div>
+   </div>
+
+
+
+
+<input type="submit" class="btn btn-primary "  value="Submit " style="margin-top:2%;color:white;width:100%;" >
+
+</form><br>
+
+{% include 'footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Edit Successfull 😍😮');
+    window.location=('{% url 'edit_jobdetail' job.id %}')
+</script>
+
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Not Editted😥');
+
+</script>
+{% endifequal %}
+
+{% endblock body %}

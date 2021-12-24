@@ -1,0 +1,45 @@
+{% load static %}
+{% block body %}
+{% include 'admin_header.html' %}
+<style>
+      #one{
+          color:lime;
+         background-color:cyan!important;
+
+  text-shadow:2px 4px 2px yellow;
+         }
+         input{
+
+         color:red!important;}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>View All Pending Recruiter</h1></marquee><hr>
+<hr>
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label><i class="fa fa-users" ></i> Recruiter Name</label>
+    <input type="text" class="form-control" name="uname" value="{{recruiter.user.first_name }} {{recruiter.user.last_name}}">
+    <label style="margin-top:2%;"><i class="fa fa-key" aria-hidden="true"></i>Status</label>
+    <select class="form-control" name="status">
+        <option value="Accept">Accept</option>
+        <option value="Reject">Reject</option>
+    </select>
+<input type="submit" class="btn btn-primary "  value="Submit " style="margin-top:2%;color:white;width:100%;" >
+</form>
+{% ifequal error "no" %}
+<script>
+    alert('Status Changed Successfully 😍😮');
+    window.location=('{% url 'recruiter_all' %}')
+</script>
+
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Try Again 😥');
+
+</script>
+{% endifequal %}
+
+{% endblock body %}

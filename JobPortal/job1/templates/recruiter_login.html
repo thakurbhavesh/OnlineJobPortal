@@ -1,0 +1,51 @@
+{% load static %}
+{% block body %}
+{% include 'parent.html' %}
+<style>
+    .one{
+    font-family:'Monotype Corsiva';
+    font-size:25px;
+    color:darkcyan;
+
+    margin-top:1%;
+    font-weight:bold;
+    }
+form{font-weight:bold;
+font-size:20px;}
+</style>
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>Recruiter Login</h1></marquee>
+<br>
+<hr>
+<form class="container mt-5" method="post">
+    {% csrf_token %}
+    <label><i class="far fa-envelope-open"></i>Email Id</label>
+    <input type="text" class="form-control" name="uname" placeholder="Enter Email-Id">
+    <label style="margin-top:2%;><i class="fa fa-key aria-hidden="true"></i>Password</label>
+    <input type="password" class="form-control" name="pwd" placeholder="Enter password" >
+    <input type="submit" class="btn btn-primary" style="margin-top:2%;color:white;" >
+    <a href="{% url 'recruiter_signup' %}" class="btn btn-primary"  style="margin-top:2%;color:white;" >User Signup</a>
+</form>
+
+{% ifequal error "no" %}
+<script>
+    alert('Login Successfull 😍😮');
+    window.location=('{% url 'recruiter_home' %}')
+</script>
+
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Not Logged 😥');
+
+</script>
+{% endifequal %}
+
+{% ifequal error "not" %}
+<script>
+    alert('Login Status Pending 😥');
+
+</script>
+{% endifequal %}
+
+{% endblock body %}

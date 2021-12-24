@@ -1,0 +1,81 @@
+{% load static %}
+{% block body %}
+{% include 'recruiter_navigation.html' %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<marquee class="one" behavior="alternate" scrollamount="4"><h1>Add Job Details</h1></marquee>
+<br>
+<hr>
+<form class="container mt-5" method="post" enctype="multipart/form-data" name="signup" onsubmit="return checkpass();">
+    {% csrf_token %}
+   <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-file-text" aria-hidden="true"></i>Job Title</label>
+           <input type="text" class="form-control" name="jobtitle" placeholder="Enter Job Title" required autocomplete="on">
+           </div>
+
+   </div>
+
+    <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>Start Date.</label>
+           <input type="date" class="form-control" name="startdate" required>
+           </div>
+
+        <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>End Date.</label>
+           <input type="date" class="form-control" name="enddate" required>
+           </div>
+
+   </div>
+
+       <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>Salary(per month is rs.)</label>
+           <input type="text" class="form-control" name="salary" required>
+           </div>
+
+        <div class="form-group col-md-6">
+           <label><i class="fa fa-mobile" aria-hidden="true"></i>Company Logo</label>
+           <input type="file" class="form-control" name="logo" required>
+           </div>
+
+   </div>
+    <div class="form-row">
+       <div class="form-group col-md-6">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Experience(In Years)</label>
+           <input type="text" class="form-control" name="experience" placeholder="Enter your experience" required>
+           </div>
+  <div class="form-group col-md-6">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i> Compaany Location</label>
+           <input type="text" class="form-control" name="location" placeholder="Enter your location" required>
+           </div>
+   </div>
+    <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Skills</label>
+           <input type="text" class="form-control" name="skills" placeholder="skill required" required>
+           </div>
+
+   </div>
+     <div class="form-row">
+       <div class="form-group col-md-12">
+           <label><i class="fa fa-envelope-o" aria-hidden="true"></i>Descriptions</label>
+           <textarea class="form-control" name="description" placeholder="Enter your descriptions" required></textarea>
+           </div>
+
+   </div>
+
+     </div>
+   </div>
+
+
+
+
+<input type="submit" class="btn btn-primary "  value="Submit " style="margin-top:2%;color:white;width:100%;" >
+
+</form><br>
+
+{% include 'footer.html' %}
+
+{% endblock body %}
